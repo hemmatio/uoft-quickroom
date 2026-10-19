@@ -1,0 +1,1465 @@
+[
+  {
+    "lid": 3320,
+    "name": "Eberhard Zeidler Library",
+    "campus": "UTSG",
+    "groups": [
+      {
+        "gid": 7399,
+        "name": "Group Study Room",
+        "room_count": 1,
+        "rooms": [
+          {
+            "eid": 30285,
+            "title": "Group Study Room (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lid": 3324,
+    "name": "Gerstein Science Information Centre",
+    "groups": [
+      {
+        "gid": 7416,
+        "name": "Group Study Rooms",
+        "room_count": 22,
+        "rooms": [
+          {
+            "eid": 30384,
+            "title": "2000 (Presentation Practice Space) (Capacity 18)",
+            "capacity": 18,
+            "min_occupancy": 2,
+            "max_occupancy": 18
+          },
+          {
+            "eid": 30623,
+            "title": "2100 (Capacity 10)",
+            "capacity": 10,
+            "min_occupancy": 2,
+            "max_occupancy": 10
+          },
+          {
+            "eid": 30624,
+            "title": "2101 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30625,
+            "title": "2102 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30626,
+            "title": "2103 (Capacity 7)",
+            "capacity": 7,
+            "min_occupancy": 2,
+            "max_occupancy": 7
+          },
+          {
+            "eid": 30627,
+            "title": "2104 (Capacity 9)",
+            "capacity": 9,
+            "min_occupancy": 2,
+            "max_occupancy": 9
+          },
+          {
+            "eid": 30628,
+            "title": "2105 (Capacity 11)",
+            "capacity": 11,
+            "min_occupancy": 2,
+            "max_occupancy": 11
+          },
+          {
+            "eid": 30629,
+            "title": "2106 (Capacity 7)",
+            "capacity": 7,
+            "min_occupancy": 2,
+            "max_occupancy": 7
+          },
+          {
+            "eid": 30630,
+            "title": "2107 (Capacity 7)",
+            "capacity": 7,
+            "min_occupancy": 2,
+            "max_occupancy": 7
+          },
+          {
+            "eid": 30631,
+            "title": "B105A (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30632,
+            "title": "B105B (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30633,
+            "title": "B105C (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30634,
+            "title": "B105D (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30635,
+            "title": "B105E (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30636,
+            "title": "B105F (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30637,
+            "title": "B170A (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30638,
+            "title": "B170B (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 30639,
+            "title": "B172 (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30640,
+            "title": "B173 (Capacity 13)",
+            "capacity": 13,
+            "min_occupancy": 2,
+            "max_occupancy": 13
+          },
+          {
+            "eid": 30641,
+            "title": "B174 (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30642,
+            "title": "B175 (Capacity 12)",
+            "capacity": 12,
+            "min_occupancy": 2,
+            "max_occupancy": 12
+          },
+          {
+            "eid": 38887,
+            "title": "George Kiddell Room (Room 1201) (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  },
+  {
+    "lid": 3335,
+    "name": "OISE Library",
+    "groups": [
+      {
+        "gid": 7432,
+        "name": "Individual Rooms",
+        "room_count": 16,
+        "rooms": [
+          {
+            "eid": 30485,
+            "title": "M 1 (Capacity 2)",
+            "capacity": 2,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30486,
+            "title": "M 3 (Capacity 2)",
+            "capacity": 2,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30487,
+            "title": "M 5 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30488,
+            "title": "M 6 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30489,
+            "title": "M 7 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30490,
+            "title": "M 8 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30491,
+            "title": "M 9 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30492,
+            "title": "M10 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30493,
+            "title": "M11 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30494,
+            "title": "M12 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30495,
+            "title": "M13 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30496,
+            "title": "M14 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30497,
+            "title": "M15 (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30498,
+            "title": "M28 (Capacity 2)",
+            "capacity": 2,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30499,
+            "title": "M30 (Capacity 2)",
+            "capacity": 2,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 30500,
+            "title": "M32 (Capacity 2)",
+            "capacity": 2,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          }
+        ]
+      },
+      {
+        "gid": 7433,
+        "name": "Double Rooms",
+        "room_count": 2,
+        "rooms": [
+          {
+            "eid": 30501,
+            "title": "M34 (Capacity 2)",
+            "capacity": 2,
+            "min_occupancy": 2,
+            "max_occupancy": 2
+          },
+          {
+            "eid": 30502,
+            "title": "M36 (Capacity 2)",
+            "capacity": 2,
+            "min_occupancy": 2,
+            "max_occupancy": 2
+          }
+        ]
+      },
+      {
+        "gid": 7434,
+        "name": "Group Rooms",
+        "room_count": 9,
+        "rooms": [
+          {
+            "eid": 35418,
+            "title": "3-138 (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 3,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30507,
+            "title": "C130 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30508,
+            "title": "C132 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30509,
+            "title": "C134 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30510,
+            "title": "C136 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30503,
+            "title": "M40 (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 3,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30504,
+            "title": "M42 (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 3,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30505,
+            "title": "M46 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30506,
+            "title": "M48 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  },
+  {
+    "lid": 3348,
+    "name": "John M. Kelly Library",
+    "groups": [
+      {
+        "gid": 7449,
+        "name": "Group Study Rooms",
+        "room_count": 5,
+        "rooms": [
+          {
+            "eid": 30645,
+            "title": "Room 201 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 3,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30646,
+            "title": "Room 202 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 3,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30649,
+            "title": "Room 205 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 3,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30648,
+            "title": "Room 206 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 3,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 30647,
+            "title": "Room 231 (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 3,
+            "max_occupancy": 6
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  },
+  {
+    "lid": 3371,
+    "name": "UofT Mississauga Library",
+    "groups": [
+      {
+        "gid": 7594,
+        "name": "3D Printing",
+        "room_count": 2,
+        "rooms": [
+          {
+            "eid": 31371,
+            "title": "Ultimaker S3 1 (Capacity 0)",
+            "capacity": 0,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 31515,
+            "title": "Ultimaker S3 2 (Capacity 0)",
+            "capacity": 0,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          }
+        ]
+      },
+      {
+        "gid": 8110,
+        "name": "Virtual reality (VR) headsets: Meta Quest 3",
+        "room_count": 3,
+        "rooms": [
+          {
+            "eid": 33984,
+            "title": "Meta Quest 3S Headset 1 (Capacity 0)",
+            "capacity": 0,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 33985,
+            "title": "Meta Quest 3S Headset 2 (Capacity 0)",
+            "capacity": 0,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 33986,
+            "title": "Meta Quest 3S Headset 3 (Capacity 0)",
+            "capacity": 0,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          }
+        ]
+      },
+      {
+        "gid": 8312,
+        "name": "3D Scanning",
+        "room_count": 1,
+        "rooms": [
+          {
+            "eid": 35270,
+            "title": "MINI 2 REVOPOINT (Capacity 0)",
+            "capacity": 0,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          }
+        ]
+      },
+      {
+        "gid": 8732,
+        "name": "Study Rooms",
+        "room_count": 15,
+        "rooms": [
+          {
+            "eid": 37872,
+            "title": "Library Study Room 01 (A\\/V) (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 37873,
+            "title": "Library Study Room 02 (A\\/V) (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 37874,
+            "title": "Library Study Room 03 (A\\/V) (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 37875,
+            "title": "Library Study Room 04 (A\\/V) (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 37876,
+            "title": "Library Study Room 05 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37877,
+            "title": "Library Study Room 06 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37878,
+            "title": "Library Study Room 07 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37879,
+            "title": "Library Study Room 11 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37882,
+            "title": "Library Study Room 12 (A\\/V)\tMonitor available. (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37881,
+            "title": "Library Study Room 13 (A\\/V)\tMonitor available. (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37883,
+            "title": "Library Study Room 14 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37884,
+            "title": "Library Study Room 15 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37880,
+            "title": "Library Study Room 16 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37885,
+            "title": "Library Study Room 17 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37886,
+            "title": "Library Study Room 18 (A\\/V) (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          }
+        ]
+      }
+    ],
+    "campus": "UTM"
+  },
+  {
+    "lid": 3446,
+    "name": "Robarts Library & Robarts Common",
+    "groups": [
+      {
+        "gid": 7314,
+        "name": "Group Study Rooms (Robarts Common)",
+        "room_count": 32,
+        "rooms": [
+          {
+            "eid": 30514,
+            "title": "2241 Group Study Room 2A (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30515,
+            "title": "2243 Group Study Room 2B (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30516,
+            "title": "2247 Group Study Room 2C (Capacity 7)",
+            "capacity": 7,
+            "min_occupancy": 2,
+            "max_occupancy": 7
+          },
+          {
+            "eid": 30517,
+            "title": "2253 Group Study Room 2D (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30518,
+            "title": "2255 Group Study Room 2E (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30519,
+            "title": "2261 Group Study Room 2F (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 30520,
+            "title": "2265 Group Study Room 2G (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30521,
+            "title": "2266 Group Study Room 2H (Capacity 10)",
+            "capacity": 10,
+            "min_occupancy": 2,
+            "max_occupancy": 10
+          },
+          {
+            "eid": 30522,
+            "title": "3241 Group Study Room 3A (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30523,
+            "title": "3243 Group Study Room 3B (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30524,
+            "title": "3247 Group Study Room 3C (Capacity 7)",
+            "capacity": 7,
+            "min_occupancy": 2,
+            "max_occupancy": 7
+          },
+          {
+            "eid": 30525,
+            "title": "3253 Group Study Room 3D (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30526,
+            "title": "3255 Group Study Room 3E (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30527,
+            "title": "3261 Group Study Room 3F (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 30528,
+            "title": "3265 Group Study Room 3G (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30530,
+            "title": "3266 Group Study Room 3H (Capacity 10)",
+            "capacity": 10,
+            "min_occupancy": 2,
+            "max_occupancy": 10
+          },
+          {
+            "eid": 30531,
+            "title": "4241 Group Study Room 4A (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30532,
+            "title": "4243 Group Study Room 4B (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30533,
+            "title": "4247 Group Study Room 4C (Capacity 7)",
+            "capacity": 7,
+            "min_occupancy": 2,
+            "max_occupancy": 7
+          },
+          {
+            "eid": 30534,
+            "title": "4253 Group Study Room 4D (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30535,
+            "title": "4255 Group Study Room 4E (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30536,
+            "title": "4261 Group Study Room 4F (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 30537,
+            "title": "4265 Group Study Room 4G (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30538,
+            "title": "4266 Group Study Room 4H (Capacity 10)",
+            "capacity": 10,
+            "min_occupancy": 2,
+            "max_occupancy": 10
+          },
+          {
+            "eid": 30588,
+            "title": "5241 Group Study Room 5A (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30589,
+            "title": "5243 Group Study Room 5B (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30590,
+            "title": "5247 Group Study Room 5C (Capacity 7)",
+            "capacity": 7,
+            "min_occupancy": 2,
+            "max_occupancy": 7
+          },
+          {
+            "eid": 30591,
+            "title": "5253 Group Study Room 5D (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30592,
+            "title": "5255 Group Study Room 5E (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30593,
+            "title": "5261 Group Study Room 5F (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 30594,
+            "title": "5265 Group Study Room 5G (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30595,
+            "title": "5266 Group Study Room 5H (Capacity 10)",
+            "capacity": 10,
+            "min_occupancy": 2,
+            "max_occupancy": 10
+          }
+        ]
+      },
+      {
+        "gid": 7466,
+        "name": "Group Study Rooms (Robarts Library Stacks)",
+        "room_count": 20,
+        "rooms": [
+          {
+            "eid": 30600,
+            "title": "St. George 3 (10th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30604,
+            "title": "St. George 3 (11th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30608,
+            "title": "St. George 3 (12th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30612,
+            "title": "St. George 3 (13th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30596,
+            "title": "St. George 3 (9th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30601,
+            "title": "St. George 4 (10th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30605,
+            "title": "St. George 4 (11th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30609,
+            "title": "St. George 4 (12th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30613,
+            "title": "St. George 4 (13th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30597,
+            "title": "St. George 4 (9th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30602,
+            "title": "Sussex 1 (10th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30606,
+            "title": "Sussex 1 (11th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30610,
+            "title": "Sussex 1 (12th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30614,
+            "title": "Sussex 1 (13th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30598,
+            "title": "Sussex 1 (9th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30603,
+            "title": "Sussex 2 (10th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30607,
+            "title": "Sussex 2 (11th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30611,
+            "title": "Sussex 2 (12th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30615,
+            "title": "Sussex 2 (13th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          },
+          {
+            "eid": 30599,
+            "title": "Sussex 2 (9th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          }
+        ]
+      },
+      {
+        "gid": 7474,
+        "name": "Group Study Rooms (Robarts Library Ground Floor)",
+        "room_count": 5,
+        "rooms": [
+          {
+            "eid": 30618,
+            "title": "Suite 1 (Ground Floor) (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30619,
+            "title": "Suite 2 (Ground Floor) (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30620,
+            "title": "Suite 3 (Ground Floor) (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30621,
+            "title": "Suite 4 (Ground Floor) (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          },
+          {
+            "eid": 30622,
+            "title": "Suite 5 (Ground Floor) (Capacity 8)",
+            "capacity": 8,
+            "min_occupancy": 2,
+            "max_occupancy": 8
+          }
+        ]
+      },
+      {
+        "gid": 7708,
+        "name": "Group Study Rooms (Robarts Library 3rd Floor)",
+        "room_count": 2,
+        "rooms": [
+          {
+            "eid": 31696,
+            "title": "Group Study Room 2, 3-026 (3rd Floor) (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 31697,
+            "title": "Group Study Room 3, 3-027 (3rd Floor) (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          }
+        ]
+      },
+      {
+        "gid": 7816,
+        "name": "Individual Study Rooms (Robarts Library Stacks)",
+        "room_count": 5,
+        "rooms": [
+          {
+            "eid": 32238,
+            "title": "St. George 1 (10th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 32239,
+            "title": "St. George 1 (11th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 32240,
+            "title": "St. George 1 (12th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 32241,
+            "title": "St. George 1 (13th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          },
+          {
+            "eid": 32237,
+            "title": "St. George 1 (9th Floor) (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  },
+  {
+    "lid": 3472,
+    "name": "Music Library",
+    "groups": [
+      {
+        "gid": 7935,
+        "name": "Bookable Rooms",
+        "room_count": 1,
+        "rooms": [
+          {
+            "eid": 33213,
+            "title": "Group Study Room (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  },
+  {
+    "lid": 3482,
+    "name": "University College Library",
+    "groups": [
+      {
+        "gid": 7996,
+        "name": "Group Study Rooms",
+        "room_count": 2,
+        "rooms": [
+          {
+            "eid": 33397,
+            "title": "UC366A (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 33398,
+            "title": "UC366B (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  },
+  {
+    "lid": 3483,
+    "name": "John W. Graham Library",
+    "groups": [
+      {
+        "gid": 7972,
+        "name": "Study rooms for all U of T Students",
+        "room_count": 2,
+        "rooms": [
+          {
+            "eid": 33250,
+            "title": "Group Study Room #1 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 33251,
+            "title": "Group Study Room #2 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          }
+        ]
+      },
+      {
+        "gid": 7974,
+        "name": "Study rooms for only Trinity or Wycliffe College students",
+        "room_count": 3,
+        "rooms": [
+          {
+            "eid": 33256,
+            "title": "Group Study Room #3 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 33257,
+            "title": "Group Study Room #4 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 33252,
+            "title": "Private Study Room (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          }
+        ]
+      },
+      {
+        "gid": 8232,
+        "name": "Soundproof Booth",
+        "room_count": 1,
+        "rooms": [
+          {
+            "eid": 34813,
+            "title": "Soundproof Booth (Capacity 1)",
+            "capacity": 1,
+            "min_occupancy": 1,
+            "max_occupancy": 1
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  },
+  {
+    "lid": 3484,
+    "name": "E.J. Pratt Library",
+    "groups": [
+      {
+        "gid": 7970,
+        "name": "Pratt Study Room 202",
+        "room_count": 1,
+        "rooms": [
+          {
+            "eid": 33255,
+            "title": "Pratt Study Room 202 (Capacity 12)",
+            "capacity": 12,
+            "min_occupancy": 5,
+            "max_occupancy": 12
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  },
+  {
+    "lid": 3530,
+    "name": "UTSC Library",
+    "groups": [
+      {
+        "gid": 8136,
+        "name": "Small Study Rooms",
+        "room_count": 8,
+        "rooms": [
+          {
+            "eid": 34228,
+            "title": "Group Study Room AC277 (Capacity 3)",
+            "capacity": 3,
+            "min_occupancy": 2,
+            "max_occupancy": 3
+          },
+          {
+            "eid": 34229,
+            "title": "Group Study Room AC278 (Capacity 3)",
+            "capacity": 3,
+            "min_occupancy": 2,
+            "max_occupancy": 3
+          },
+          {
+            "eid": 34230,
+            "title": "Group Study Room AC279 (Capacity 3)",
+            "capacity": 3,
+            "min_occupancy": 2,
+            "max_occupancy": 3
+          },
+          {
+            "eid": 34231,
+            "title": "Group Study Room AC281 (Capacity 3)",
+            "capacity": 3,
+            "min_occupancy": 2,
+            "max_occupancy": 3
+          },
+          {
+            "eid": 34232,
+            "title": "Group Study Room AC282 (Capacity 3)",
+            "capacity": 3,
+            "min_occupancy": 2,
+            "max_occupancy": 3
+          },
+          {
+            "eid": 34233,
+            "title": "Group Study Room AC283 (Capacity 3)",
+            "capacity": 3,
+            "min_occupancy": 2,
+            "max_occupancy": 3
+          },
+          {
+            "eid": 34234,
+            "title": "Group Study Room AC284 (Capacity 3)",
+            "capacity": 3,
+            "min_occupancy": 2,
+            "max_occupancy": 3
+          },
+          {
+            "eid": 34235,
+            "title": "Group Study Room AC285 (Capacity 3)",
+            "capacity": 3,
+            "min_occupancy": 2,
+            "max_occupancy": 3
+          }
+        ]
+      },
+      {
+        "gid": 8137,
+        "name": "Medium Study Rooms",
+        "room_count": 6,
+        "rooms": [
+          {
+            "eid": 34237,
+            "title": "Group Study Room AC251 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 34236,
+            "title": "Group Study Room AC251A (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 34239,
+            "title": "Group Study Room AC252 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 34240,
+            "title": "Group Study Room AC253 (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 38735,
+            "title": "Group Study Room AC385B (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 38737,
+            "title": "Group Study Room AC385C (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          }
+        ]
+      },
+      {
+        "gid": 8672,
+        "name": "Makerspace",
+        "room_count": 2,
+        "rooms": [
+          {
+            "eid": 37600,
+            "title": "One Button Studio (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          },
+          {
+            "eid": 37599,
+            "title": "Podcast Room (Capacity 4)",
+            "capacity": 4,
+            "min_occupancy": 2,
+            "max_occupancy": 4
+          }
+        ]
+      }
+    ],
+    "campus": "UTSC"
+  },
+  {
+    "lid": 3539,
+    "name": "Industrial Relations Library",
+    "groups": [
+      {
+        "gid": 8174,
+        "name": "Study Room",
+        "room_count": 1,
+        "rooms": [
+          {
+            "eid": 34420,
+            "title": "Study Room (Capacity 5)",
+            "capacity": 5,
+            "min_occupancy": 2,
+            "max_occupancy": 5
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  },
+  {
+    "lid": 3836,
+    "name": "Map & Data Library",
+    "groups": [
+      {
+        "gid": 8924,
+        "name": "Collaboration Rooms",
+        "room_count": 3,
+        "rooms": [
+          {
+            "eid": 38955,
+            "title": "Collaboration room 1 (5030) (Capacity 10)",
+            "capacity": 10,
+            "min_occupancy": 2,
+            "max_occupancy": 10
+          },
+          {
+            "eid": 38956,
+            "title": "Collaboration room 2 (5025) (Capacity 6)",
+            "capacity": 6,
+            "min_occupancy": 2,
+            "max_occupancy": 6
+          },
+          {
+            "eid": 38957,
+            "title": "Collaboration room 3 (5026) (Capacity 10)",
+            "capacity": 10,
+            "min_occupancy": 2,
+            "max_occupancy": 10
+          }
+        ]
+      }
+    ],
+    "campus": "UTSG"
+  }
+]
