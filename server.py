@@ -157,17 +157,18 @@ class RoomFinderHandler(BaseHTTPRequestHandler):
 
         if path == '/api/search':
             date_str = query.get('date', [datetime.now().strftime("%Y-%m-%d")])[0]
-            start_time_str = query.get('startTime', ['12:00'])[0]
+            start_time_str = query.get('startTime', query.get('start', ['12:00']))[0]
             duration_minutes = int(query.get('duration', ['60'])[0])
             
             # Campus filter (comma-separated list e.g. "UTSG,UTM")
             campus_param = query.get('campuses', ['UTSG,UTM,UTSC'])[0]
             allowed_campuses = set(campus_param.split(',')) if campus_param else {'UTSG', 'UTM', 'UTSC'}
 
-            # Group size / people count filter
+            # Group size / people count filter (accepts peopleCount, capacity, groupSize, minCapacity)
+            raw_cap = query.get('peopleCount') or query.get('capacity') or query.get('groupSize') or query.get('minCapacity') or ['0']
             try:
-                people_count = int(query.get('peopleCount', query.get('minCapacity', ['0']))[0])
-            except ValueError:
+                people_count = int(raw_cap[0])
+            except (ValueError, IndexError):
                 people_count = 0
 
             # Building IDs filter (either single lid or comma-separated lids e.g. from map)
