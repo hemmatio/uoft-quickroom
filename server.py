@@ -275,10 +275,12 @@ class RoomFinderHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b"Not Found")
 
-def run(port=5050):
-    server_address = ('127.0.0.1', port)
+def run(port=29842, host='0.0.0.0'):
+    HTTPServer.allow_reuse_address = True
+    server_address = (host, port)
     httpd = HTTPServer(server_address, RoomFinderHandler)
-    print(f"Server started on http://127.0.0.1:{port}")
+    display_host = 'localhost' if host == '0.0.0.0' else host
+    print(f"Server started on http://{display_host}:{port} (listening on {host}:{port})")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
@@ -286,7 +288,11 @@ def run(port=5050):
         httpd.server_close()
 
 if __name__ == '__main__':
-    port = 5050
+    port = 29842
+    host = '0.0.0.0'
     if len(sys.argv) > 1:
         port = int(sys.argv[1])
-    run(port)
+    if len(sys.argv) > 2:
+        host = sys.argv[2]
+    run(port, host)
+

@@ -11,7 +11,21 @@ A fast, lightweight web app and API aggregator for University of Toronto study r
 - **Direct Date Handoff**: 1-click booking loads LibCal with the exact date pre-filtered for checkout.
 
 ## Usage
+
+### Quick Management CLI (Permanent tmux session)
+Run the interactive CLI manager:
 ```bash
-python3 server.py [port]
+./quickroom.sh
 ```
-Default port is `5050`.
+Or run directly via subcommands:
+- `./quickroom.sh 1` or `./quickroom.sh start` — Start server in a background tmux session (auto-restart enabled)
+- `./quickroom.sh 2` or `./quickroom.sh kill` — Kill server and tmux session
+- `./quickroom.sh 3` or `./quickroom.sh logs` — View logs (with live follow or tmux attach)
+- `./quickroom.sh 4` or `./quickroom.sh open` — Launch browser / display direct URLs
+
+### Manual Server Run
+```bash
+python3 server.py [port] [host]
+```
+Default port is obscure port `29842` (listening on `0.0.0.0` for open access).
+
