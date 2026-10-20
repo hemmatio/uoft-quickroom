@@ -263,8 +263,22 @@ async def handle_book_handoff(request: web.Request) -> web.Response:
 
     raise web.HTTPFound(location=target_url)
 
+@web.middleware
+async def request_timeout_middleware(request: web.Request, handler):
+    """
+    Enforces a strict 15-second total processing timeout for every incoming request.
+    If a client stalls or a request hangs, it is automatically aborted.
+    """
+    try:
+        return await asyncio.wait_for(handler(request), timeout=15.0)
+    except asyncio.TimeoutError:
+        return web.json_response(
+            {'error': 'Request timeout: server took too long to complete response'},
+            status=504
+        )
+
 async def init_app() -> web.Application:
-    app = web.Application()
+    app = web.Application(middlewares=[request_timeout_middleware])
     app.add_routes(routes)
 
     # Manage shared persistent ClientSession with app lifecycle
@@ -289,7 +303,14 @@ def main():
     display_host = 'localhost' if host == '0.0.0.0' else host
     print(f"Server started on http://{display_host}:{port} (listening on {host}:{port}) [aiohttp event-loop]")
     app = asyncio.run(init_app())
-    web.run_app(app, host=host, port=port, print=None)
+    web.run_app(
+        app,
+        host=host,
+        port=port,
+        print=None,
+        keepalive_timeout=15.0,
+        shutdown_timeout=5.0
+    )
 
 if __name__ == '__main__':
     main()
