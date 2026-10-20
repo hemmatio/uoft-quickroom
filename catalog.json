@@ -1091,35 +1091,35 @@
             "title": "St. George 1 (10th Floor) (Capacity 5)",
             "capacity": 5,
             "min_occupancy": 1,
-            "max_occupancy": 1
+            "max_occupancy": 5
           },
           {
             "eid": 32239,
             "title": "St. George 1 (11th Floor) (Capacity 5)",
             "capacity": 5,
             "min_occupancy": 1,
-            "max_occupancy": 1
+            "max_occupancy": 5
           },
           {
             "eid": 32240,
             "title": "St. George 1 (12th Floor) (Capacity 5)",
             "capacity": 5,
             "min_occupancy": 1,
-            "max_occupancy": 1
+            "max_occupancy": 5
           },
           {
             "eid": 32241,
             "title": "St. George 1 (13th Floor) (Capacity 5)",
             "capacity": 5,
             "min_occupancy": 1,
-            "max_occupancy": 1
+            "max_occupancy": 5
           },
           {
             "eid": 32237,
             "title": "St. George 1 (9th Floor) (Capacity 5)",
             "capacity": 5,
             "min_occupancy": 1,
-            "max_occupancy": 1
+            "max_occupancy": 5
           }
         ]
       }

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-U of T QuickRoom Finder - Multi-threaded Server & LibCal API Connector
+U of T QuickRoom - Multi-threaded Server & LibCal API Connector
 """
 import os
 import sys

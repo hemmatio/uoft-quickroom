@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# U of T QuickRoom Finder - Daemon & CLI Manager
+# U of T QuickRoom - Daemon & CLI Manager
 # Runs server.py in an isolated, permanent tmux session on an obscure port.
 # ==============================================================================
 
@@ -224,7 +224,7 @@ show_menu() {
     while true; do
         clear 2>/dev/null || echo -e "\n----------------------------------------\n"
         echo -e "${BOLD}${BLUE}================================================================${NC}"
-        echo -e "${BOLD}${BLUE}                  U of T QuickRoom Finder CLI                   ${NC}"
+        echo -e "${BOLD}${BLUE}                     U of T QuickRoom CLI                       ${NC}"
         echo -e "${BOLD}${BLUE}================================================================${NC}"
         echo -e " Status: $(get_status_line)"
         echo -e " Port:   ${CYAN}${PORT}${NC} (obscure port with low collision risk)"

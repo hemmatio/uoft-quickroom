@@ -1,4 +1,4 @@
-# U of T QuickRoom Finder
+# U of T QuickRoom
 
 A fast, lightweight web app and API aggregator for University of Toronto study rooms and LibCal spaces.
 

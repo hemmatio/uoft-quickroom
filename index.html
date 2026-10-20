@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>U of T QuickRoom Finder</title>
+  <title>U of T QuickRoom</title>
   <style>
     /* =========================================================================
        WINDOWS 95 AUTHENTIC THEME STYLESHEET
@@ -951,7 +951,7 @@
 
   <!-- Desktop Icons -->
   <div class="desktop-icons">
-    <div class="desktop-icon" onclick="openAboutDialog();" title="About U of T QuickRoom Finder">
+    <div class="desktop-icon" onclick="openAboutDialog();" title="About U of T QuickRoom">
       <div class="desktop-icon-img">ℹ️</div>
       <div class="desktop-icon-label">About</div>
     </div>
@@ -1762,9 +1762,14 @@
 
             const minOcc = room.min_occupancy || 1;
             const maxOcc = room.max_occupancy || room.capacity || 1;
-            const occLabel = minOcc === 1 && maxOcc === 1 
-              ? '👤 Individual use only (1 person)'
-              : `👥 Requires ${minOcc} to ${maxOcc} people`;
+            let occLabel = '';
+            if (minOcc === 1 && maxOcc === 1) {
+              occLabel = '👤 Individual use only (1 person)';
+            } else if (minOcc === 1) {
+              occLabel = `👤👥 Allowed for 1 to ${maxOcc} people`;
+            } else {
+              occLabel = `👥 Requires ${minOcc} to ${maxOcc} people`;
+            }
 
             roomEl.innerHTML = `
               <div>
@@ -1876,7 +1881,7 @@
       <div class="win95-titlebar">
         <div class="win95-titlebar-title">
           <span>ℹ️</span>
-          <span>About U of T QuickRoom Finder</span>
+          <span>About U of T QuickRoom</span>
         </div>
         <div class="win95-titlebar-controls">
           <button class="win95-ctrl-btn" onclick="closeAboutDialog();">✕</button>
@@ -1890,7 +1895,7 @@
           <div style="font-size: 36px; line-height: 1;">🏛️</div>
           <div>
             <div style="font-size: 13px; font-weight: bold; color: var(--win-navy);">
-              U of T QuickRoom Finder v1.0
+              U of T QuickRoom v1.0
             </div>
             <div style="font-size: 11px; margin-top: 2px; color: #111111;">
               Created by <strong>Omid Hemmati</strong> (<a href="https://omidhemmati.com" target="_blank" style="color: var(--win-navy); font-weight: bold; text-decoration: underline;">omidhemmati.com</a>)
@@ -1905,7 +1910,7 @@
         <fieldset class="win95-groupbox" style="margin-bottom: 10px;">
           <legend>What is this project?</legend>
           <p style="font-size: 11px; line-height: 1.45; color: #000000;">
-            Booking a study room across U of T libraries normally requires opening dozens of LibCal tabs, clicking through dates and rooms one-by-one, and guessing when spaces are free. <strong>U of T QuickRoom Finder</strong> unifies all 13 bookable libraries across St. George (UTSG), Mississauga (UTM), and Scarborough (UTSC) into a single instantaneous, parallel interface with 1-click booking.
+            Booking a study room across U of T libraries normally requires opening dozens of LibCal tabs, clicking through dates and rooms one-by-one, and guessing when spaces are free. <strong>U of T QuickRoom</strong> unifies all 13 bookable libraries across St. George (UTSG), Mississauga (UTM), and Scarborough (UTSC) into a single instantaneous, parallel interface with 1-click booking.
           </p>
         </fieldset>
 
