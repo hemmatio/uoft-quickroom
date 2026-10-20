@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 """
-U of T QuickRoom - Multi-threaded Server & LibCal API Connector
+U of T QuickRoom - Event-Loop Server (aiohttp) & LibCal API Connector
+Fully non-blocking asynchronous architecture.
 """
 import os
 import sys
 import json
-import urllib.request
-import urllib.parse
-from http.server import HTTPServer, BaseHTTPRequestHandler
-from socketserver import ThreadingMixIn
+import asyncio
 from datetime import datetime, timedelta
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from aiohttp import web, ClientSession, ClientTimeout
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CATALOG_PATH = os.path.join(BASE_DIR, 'catalog.json')
@@ -24,10 +22,13 @@ def load_catalog():
 
 CATALOG = load_catalog()
 
-def query_libcal_grid(lid, gid, date_str):
+# Pre-read index.html in memory
+with open(INDEX_PATH, 'r', encoding='utf-8') as f:
+    INDEX_HTML = f.read()
+
+async def query_libcal_grid_async(session: ClientSession, lid: int, gid: int, date_str: str) -> dict:
     """
-    Query LibCal's /spaces/availability/grid for all rooms in a given group.
-    Returns the parsed JSON response with slots.
+    Non-blocking query to LibCal's /spaces/availability/grid for all rooms in a given group.
     """
     try:
         dt = datetime.strptime(date_str, "%Y-%m-%d")
@@ -36,42 +37,43 @@ def query_libcal_grid(lid, gid, date_str):
     except Exception:
         end_date_str = date_str
 
-    post_data = urllib.parse.urlencode({
-        'lid': lid,
-        'gid': gid,
-        'eid': -1,
-        'seat': 0,
-        'seatId': 0,
-        'zone': 0,
+    post_data = {
+        'lid': str(lid),
+        'gid': str(gid),
+        'eid': '-1',
+        'seat': '0',
+        'seatId': '0',
+        'zone': '0',
         'start': date_str,
         'end': end_date_str,
-        'pageIndex': 0,
-        'pageSize': 100
-    }).encode('utf-8')
+        'pageIndex': '0',
+        'pageSize': '100'
+    }
 
-    req = urllib.request.Request(
-        'https://libcal.library.utoronto.ca/spaces/availability/grid',
-        data=post_data,
-        headers={
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'Referer': f'https://libcal.library.utoronto.ca/spaces?lid={lid}&gid={gid}',
-            'X-Requested-With': 'XMLHttpRequest',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'
-        }
-    )
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Referer': f'https://libcal.library.utoronto.ca/spaces?lid={lid}&gid={gid}',
+        'X-Requested-With': 'XMLHttpRequest',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'
+    }
 
     try:
-        with urllib.request.urlopen(req, timeout=8) as resp:
-            return json.loads(resp.read().decode('utf-8'))
+        async with session.post(
+            'https://libcal.library.utoronto.ca/spaces/availability/grid',
+            data=post_data,
+            headers=headers,
+            timeout=ClientTimeout(total=8)
+        ) as resp:
+            return await resp.json(content_type=None)
     except Exception as e:
         print(f"Error querying grid for lid={lid}, gid={gid}: {e}")
         return {'slots': []}
 
-def check_group_availability(loc, group, date_str, start_time_str, duration_minutes, people_count=0):
+async def check_group_availability_async(session: ClientSession, loc: dict, group: dict, date_str: str, start_time_str: str, duration_minutes: int, people_count: int = 0) -> tuple:
     """
-    Checks which rooms in a group are available for all consecutive 30-min slots
-    between start_time and start_time + duration, matching group size rules
-    (min_occupancy <= people_count <= max_occupancy).
+    Non-blocking check of which rooms in a group are available for all consecutive 30-min slots
+    between start_time and start_time + duration, matching group size rules.
+    Returns (loc, group, matching_rooms).
     """
     lid = loc['lid']
     gid = group['gid']
@@ -84,15 +86,15 @@ def check_group_availability(loc, group, date_str, start_time_str, duration_minu
 
     rooms_map = {r['eid']: r for r in rooms}
     if not rooms_map:
-        return []
+        return (loc, group, [])
 
-    grid_data = query_libcal_grid(lid, gid, date_str)
+    grid_data = await query_libcal_grid_async(session, lid, gid, date_str)
     slots = grid_data.get('slots', [])
 
     try:
         start_dt = datetime.strptime(f"{date_str} {start_time_str}", "%Y-%m-%d %H:%M")
     except Exception:
-        return []
+        return (loc, group, [])
 
     required_starts = []
     curr = start_dt
@@ -129,185 +131,165 @@ def check_group_availability(loc, group, date_str, start_time_str, duration_minu
                     'checksum': slot_map[required_starts[0]]
                 })
 
-    return matching_rooms
+    return (loc, group, matching_rooms)
 
-class RoomFinderHandler(BaseHTTPRequestHandler):
-    def log_message(self, format, *args):
-        # Keep console output clean
-        pass
+routes = web.RouteTableDef()
 
-    def do_GET(self):
-        parsed = urllib.parse.urlparse(self.path)
-        path = parsed.path
-        query = urllib.parse.parse_qs(parsed.query)
+@routes.get('/')
+@routes.get('/index.html')
+async def handle_index(request: web.Request) -> web.Response:
+    return web.Response(text=INDEX_HTML, content_type='text/html', charset='utf-8')
 
-        if path == '/' or path == '/index.html':
-            self.send_response(200)
-            self.send_header('Content-Type', 'text/html; charset=utf-8')
-            self.end_headers()
-            with open(INDEX_PATH, 'rb') as f:
-                self.wfile.write(f.read())
-            return
+@routes.get('/api/health')
+async def handle_health(request: web.Request) -> web.Response:
+    return web.json_response({'status': 'ok'})
 
-        if path == '/api/health':
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            self.wfile.write(b'{"status":"ok"}')
-            return
+@routes.get('/api/catalog')
+async def handle_catalog(request: web.Request) -> web.Response:
+    return web.json_response(CATALOG)
 
-        if path == '/api/catalog':
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps(CATALOG).encode('utf-8'))
-            return
-
-        if path == '/api/search':
-            date_str = query.get('date', [datetime.now().strftime("%Y-%m-%d")])[0]
-            start_time_str = query.get('startTime', query.get('start', ['12:00']))[0]
-            duration_minutes = int(query.get('duration', ['60'])[0])
-            
-            # Campus filter (comma-separated list e.g. "UTSG,UTM")
-            campus_param = query.get('campuses', ['UTSG,UTM,UTSC'])[0]
-            allowed_campuses = set(campus_param.split(',')) if campus_param else {'UTSG', 'UTM', 'UTSC'}
-
-            # Group size / people count filter (accepts peopleCount, capacity, groupSize, minCapacity)
-            raw_cap = query.get('peopleCount') or query.get('capacity') or query.get('groupSize') or query.get('minCapacity') or ['0']
-            try:
-                people_count = int(raw_cap[0])
-            except (ValueError, IndexError):
-                people_count = 0
-
-            # Building IDs filter (either single lid or comma-separated lids e.g. from map)
-            lids_param = query.get('lids', [''])[0]
-            allowed_lids = None
-            if lids_param:
-                try:
-                    allowed_lids = set(int(x.strip()) for x in lids_param.split(',') if x.strip())
-                except ValueError:
-                    allowed_lids = None
-
-            # Legacy single lid support
-            preferred_lid = query.get('lid', [None])[0]
-            if preferred_lid:
-                try:
-                    allowed_lids = {int(preferred_lid)}
-                except ValueError:
-                    pass
-
-            # Filter locations by campus and allowed lids
-            target_locations = [
-                loc for loc in CATALOG
-                if loc.get('campus', 'UTSG') in allowed_campuses
-                and (allowed_lids is None or loc['lid'] in allowed_lids)
-            ]
-
-            # Flatten group tasks for concurrent execution
-            tasks = []
-            for loc in target_locations:
-                for group in loc.get('groups', []):
-                    tasks.append((loc, group))
-
-            group_results = {}
-            with ThreadPoolExecutor(max_workers=10) as executor:
-                future_to_task = {
-                    executor.submit(check_group_availability, loc, group, date_str, start_time_str, duration_minutes, people_count): (loc, group)
-                    for loc, group in tasks
-                }
-                for future in as_completed(future_to_task):
-                    loc, group = future_to_task[future]
-                    try:
-                        matches = future.result()
-                    except Exception as e:
-                        print(f"Error checking {loc['name']} / {group['name']}: {e}")
-                        matches = []
-                    lid = loc['lid']
-                    if lid not in group_results:
-                        group_results[lid] = {'loc': loc, 'groups': []}
-                    if matches:
-                        group_results[lid]['groups'].append({
-                            'gid': group['gid'],
-                            'name': group['name'],
-                            'rooms': matches
-                        })
-
-            results_by_location = []
-            total_matching_rooms = 0
-
-            # Reconstruct ordered results
-            for loc in target_locations:
-                lid = loc['lid']
-                if lid in group_results and group_results[lid]['groups']:
-                    loc_groups = group_results[lid]['groups']
-                    loc_total = sum(len(g['rooms']) for g in loc_groups)
-                    results_by_location.append({
-                        'lid': lid,
-                        'name': loc['name'],
-                        'campus': loc.get('campus', 'UTSG'),
-                        'totalAvailable': loc_total,
-                        'groups': loc_groups
-                    })
-                    total_matching_rooms += loc_total
-
-            payload = {
-                'totalAvailableRooms': total_matching_rooms,
-                'locations': results_by_location
-            }
-
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps(payload).encode('utf-8'))
-            return
-
-        if path == '/api/book_handoff':
-            lid = query.get('lid', [''])[0]
-            gid = query.get('gid', [''])[0]
-            eid = query.get('eid', [''])[0]
-            date_val = query.get('date', [''])[0]
-            
-            # Direct handoff to room page with exact preloaded date
-            if eid and date_val:
-                target_url = f"https://libcal.library.utoronto.ca/r/accessible/availability?lid={lid}&gid={gid}&space={eid}&date={date_val}&date_end={date_val}"
-            elif eid:
-                target_url = f"https://libcal.library.utoronto.ca/space/{eid}"
-            else:
-                target_url = f"https://libcal.library.utoronto.ca/spaces?lid={lid}&gid={gid}"
-                
-            self.send_response(302)
-            self.send_header('Location', target_url)
-            self.end_headers()
-            return
-
-        self.send_response(404)
-        self.end_headers()
-        self.wfile.write(b"Not Found")
-
-    def do_HEAD(self):
-        self.do_GET()
-
-class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
-    daemon_threads = True
-
-def run(port=29842, host='0.0.0.0'):
-    ThreadedHTTPServer.allow_reuse_address = True
-    server_address = (host, port)
-    httpd = ThreadedHTTPServer(server_address, RoomFinderHandler)
-    display_host = 'localhost' if host == '0.0.0.0' else host
-    print(f"Server started on http://{display_host}:{port} (listening on {host}:{port})")
+@routes.get('/api/search')
+async def handle_search(request: web.Request) -> web.Response:
+    query = request.query
+    date_str = query.get('date', datetime.now().strftime("%Y-%m-%d"))
+    start_time_str = query.get('startTime') or query.get('start') or '12:00'
     try:
-        httpd.serve_forever()
-    except KeyboardInterrupt:
-        print("\nShutting down server.")
-        httpd.server_close()
+        duration_minutes = int(query.get('duration', '60'))
+    except ValueError:
+        duration_minutes = 60
 
-if __name__ == '__main__':
+    # Campus filter (comma-separated list e.g. "UTSG,UTM")
+    campus_param = query.get('campuses', 'UTSG,UTM,UTSC')
+    allowed_campuses = set(campus_param.split(',')) if campus_param else {'UTSG', 'UTM', 'UTSC'}
+
+    # Group size / people count filter
+    raw_cap = query.get('peopleCount') or query.get('capacity') or query.get('groupSize') or query.get('minCapacity') or '0'
+    try:
+        people_count = int(raw_cap)
+    except ValueError:
+        people_count = 0
+
+    # Building IDs filter
+    lids_param = query.get('lids', '')
+    allowed_lids = None
+    if lids_param:
+        try:
+            allowed_lids = set(int(x.strip()) for x in lids_param.split(',') if x.strip())
+        except ValueError:
+            allowed_lids = None
+
+    # Legacy single lid support
+    preferred_lid = query.get('lid')
+    if preferred_lid:
+        try:
+            allowed_lids = {int(preferred_lid)}
+        except ValueError:
+            pass
+
+    # Filter locations by campus and allowed lids
+    target_locations = [
+        loc for loc in CATALOG
+        if loc.get('campus', 'UTSG') in allowed_campuses
+        and (allowed_lids is None or loc['lid'] in allowed_lids)
+    ]
+
+    # Gather all concurrent non-blocking calls
+    tasks = []
+    session: ClientSession = request.app['client_session']
+    for loc in target_locations:
+        for group in loc.get('groups', []):
+            tasks.append(
+                check_group_availability_async(
+                    session, loc, group, date_str, start_time_str, duration_minutes, people_count
+                )
+            )
+
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+
+    group_results = {}
+    for res in results:
+        if isinstance(res, Exception):
+            print(f"Exception during async group check: {res}")
+            continue
+        loc, group, matches = res
+        lid = loc['lid']
+        if lid not in group_results:
+            group_results[lid] = {'loc': loc, 'groups': []}
+        if matches:
+            group_results[lid]['groups'].append({
+                'gid': group['gid'],
+                'name': group['name'],
+                'rooms': matches
+            })
+
+    results_by_location = []
+    total_matching_rooms = 0
+
+    # Reconstruct ordered results
+    for loc in target_locations:
+        lid = loc['lid']
+        if lid in group_results and group_results[lid]['groups']:
+            loc_groups = group_results[lid]['groups']
+            loc_total = sum(len(g['rooms']) for g in loc_groups)
+            results_by_location.append({
+                'lid': lid,
+                'name': loc['name'],
+                'campus': loc.get('campus', 'UTSG'),
+                'totalAvailable': loc_total,
+                'groups': loc_groups
+            })
+            total_matching_rooms += loc_total
+
+    payload = {
+        'totalAvailableRooms': total_matching_rooms,
+        'locations': results_by_location
+    }
+    return web.json_response(payload)
+
+@routes.get('/api/book_handoff')
+async def handle_book_handoff(request: web.Request) -> web.Response:
+    query = request.query
+    lid = query.get('lid', '')
+    gid = query.get('gid', '')
+    eid = query.get('eid', '')
+    date_val = query.get('date', '')
+
+    if eid and date_val:
+        target_url = f"https://libcal.library.utoronto.ca/r/accessible/availability?lid={lid}&gid={gid}&space={eid}&date={date_val}&date_end={date_val}"
+    elif eid:
+        target_url = f"https://libcal.library.utoronto.ca/space/{eid}"
+    else:
+        target_url = f"https://libcal.library.utoronto.ca/spaces?lid={lid}&gid={gid}"
+
+    raise web.HTTPFound(location=target_url)
+
+async def init_app() -> web.Application:
+    app = web.Application()
+    app.add_routes(routes)
+
+    # Manage shared persistent ClientSession with app lifecycle
+    async def on_startup(app_instance):
+        app_instance['client_session'] = ClientSession()
+
+    async def on_cleanup(app_instance):
+        await app_instance['client_session'].close()
+
+    app.on_startup.append(on_startup)
+    app.on_cleanup.append(on_cleanup)
+    return app
+
+def main():
     port = 29842
     host = '0.0.0.0'
     if len(sys.argv) > 1:
         port = int(sys.argv[1])
     if len(sys.argv) > 2:
         host = sys.argv[2]
-    run(port, host)
 
+    display_host = 'localhost' if host == '0.0.0.0' else host
+    print(f"Server started on http://{display_host}:{port} (listening on {host}:{port}) [aiohttp event-loop]")
+    app = asyncio.run(init_app())
+    web.run_app(app, host=host, port=port, print=None)
+
+if __name__ == '__main__':
+    main()
