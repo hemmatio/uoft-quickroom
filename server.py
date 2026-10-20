@@ -8,6 +8,7 @@ import json
 import urllib.request
 import urllib.parse
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from socketserver import ThreadingMixIn
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -148,6 +149,13 @@ class RoomFinderHandler(BaseHTTPRequestHandler):
                 self.wfile.write(f.read())
             return
 
+        if path == '/api/health':
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            self.wfile.write(b'{"status":"ok"}')
+            return
+
         if path == '/api/catalog':
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
@@ -276,10 +284,16 @@ class RoomFinderHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b"Not Found")
 
+    def do_HEAD(self):
+        self.do_GET()
+
+class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
+    daemon_threads = True
+
 def run(port=29842, host='0.0.0.0'):
-    HTTPServer.allow_reuse_address = True
+    ThreadedHTTPServer.allow_reuse_address = True
     server_address = (host, port)
-    httpd = HTTPServer(server_address, RoomFinderHandler)
+    httpd = ThreadedHTTPServer(server_address, RoomFinderHandler)
     display_host = 'localhost' if host == '0.0.0.0' else host
     print(f"Server started on http://{display_host}:{port} (listening on {host}:{port})")
     try:
